@@ -5,23 +5,23 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="title">
+          <Textbox Name="Textbox1">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!title.Value</Value>
+                    <Value>Hello World</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>title</rd:DefaultName>
-            <Top>0.85639in</Top>
-            <Left>2.99528in</Left>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.9675in</Top>
+            <Left>2.94667in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <Style>

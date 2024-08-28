@@ -24,16 +24,8 @@ namespace ReportPOC.Services
             //string rdlcFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ReportFiles", "Report1.rdlc");
             //string rdlcFilePath = @"F:\POC\ReportPOC\ReportFiles\Report1.rdlc";
 
-            string rdlcFilePath = "";
-            IConfigurationBuilder builder = new ConfigurationBuilder();
-            builder.AddJsonFile(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json"));
-            var root = builder.Build();
-            var ReportFilePath = root.GetSection("ReportFilePath").GetChildren();
-
-            foreach (var path in ReportFilePath.ToList())
-            {
-                if (path.Key == "rdlc") rdlcFilePath = path.Value + reportName + ".rdlc";
-            }
+            string fileDirectory = Assembly.GetExecutingAssembly().Location.Replace("ReportPOC.dll", string.Empty);
+            string rdlcFilePath = string.Format("{0}ReportFiles\\{1}.rdlc", fileDirectory, reportName);
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Encoding.GetEncoding("utf-8");
@@ -58,7 +50,7 @@ namespace ReportPOC.Services
             var report_parameters = new Dictionary<string, string> { { "CompileVersion", "v.4.7" } };
             report_parameters.Add("title", "BURO Bangladesh");
 
-            var result = report.Execute(GetRenderType(reportType), 1, report_parameters);
+            var result = report.Execute(GetRenderType(reportType), 1);
            
 
             return result.MainStream;
