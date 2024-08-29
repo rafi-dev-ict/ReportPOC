@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <None Remove="ReportFiles\Report1.rdlc" />
+    <None Remove="ReportFiles\Report2.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ReportFiles\Report2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ReportFiles\Report1.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -27,6 +31,28 @@
     <PackageReference Include="System.Drawing.Common" Version="8.0.8" />
     <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+
+
+
+  <ItemGroup>
+    <Compile Update="ReportDataset\Report2DataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Report2DataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+
+
+  <ItemGroup>
+    <None Update="ReportDataset\Report2DataSet.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Report2DataSet.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
   </ItemGroup>
 
 </Project>

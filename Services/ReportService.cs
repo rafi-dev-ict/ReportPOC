@@ -15,14 +15,8 @@ namespace ReportPOC.Services
 
         public byte[] GenerateReportAsync(string reportName, string reportType)
         {
-            // Get the directory of the executing assembly (your application root)
+   
             string rootPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            // Construct the full path to the RDLC file
-            //string rdlcFilePath = Path.Combine(rootPath, "ReportFiles", $"{reportName}.rdlc");
-
-            //string rdlcFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ReportFiles", "Report1.rdlc");
-            //string rdlcFilePath = @"F:\POC\ReportPOC\ReportFiles\Report1.rdlc";
 
             string fileDirectory = Assembly.GetExecutingAssembly().Location.Replace("ReportPOC.dll", string.Empty);
             string rdlcFilePath = string.Format("{0}ReportFiles\\{1}.rdlc", fileDirectory, reportName);
@@ -38,19 +32,34 @@ namespace ReportPOC.Services
 
             // Register the necessary encoding provider
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            Encoding.GetEncoding("utf-8");
+            //Encoding.GetEncoding("utf-8");
 
             LocalReport report = new LocalReport(rdlcFilePath);
 
-           
+            // Create parameter values
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+                    {
+                        { "Title", "BURO Bangladesh" } // Ensure this matches the parameter name in the RDLC
+                    };
 
-            //report.AddDataSource("dsUsers", userList);
+            List<UserDto> userList = new List<UserDto>();
 
-            // Create a dictionary for parameters and add the required 'title' parameter
-            var report_parameters = new Dictionary<string, string> { { "CompileVersion", "v.4.7" } };
-            report_parameters.Add("title", "BURO Bangladesh");
+            var user1 = new UserDto { FirstName = "jp", LastName = "jan", Email = "jp@gm.com", Phone = "+976666661111" };
+            var user2 = new UserDto { FirstName = "jp2", LastName = "jan", Email = "jp2@gm.com", Phone = "+976666661111" };
+            var user3 = new UserDto { FirstName = "Test", LastName = "Test", Email = "jp3@gm.com", Phone = "+976666661111" };
+            var user4 = new UserDto { FirstName = "Test", LastName = "Test", Email = "jp4@gm.com", Phone = "+976666661111" };
+            var user5 = new UserDto { FirstName = "jp5", LastName = "jan", Email = "jp5@gm.com", Phone = "+976666661111" };
 
-            var result = report.Execute(GetRenderType(reportType), 1);
+            userList.Add(user1);
+            userList.Add(user2);
+            userList.Add(user3);
+            userList.Add(user4);
+            userList.Add(user5);
+
+            report.AddDataSource("DataSet1", userList);
+
+
+            var result = report.Execute(GetRenderType(reportType), 1, parameters);
            
 
             return result.MainStream;
