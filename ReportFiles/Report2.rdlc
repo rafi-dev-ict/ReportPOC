@@ -56,17 +56,20 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Hello World</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>3.16889in</Top>
-            <Left>2.4675in</Left>
             <Height>0.25in</Height>
-            <Width>0.85417in</Width>
+            <Width>6.91889in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -392,7 +395,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>5.31472in</Height>
+        <Height>4.78in</Height>
         <Style />
       </Body>
       <Width>6.91889in</Width>

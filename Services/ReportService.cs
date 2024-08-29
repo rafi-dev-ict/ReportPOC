@@ -32,17 +32,19 @@ namespace ReportPOC.Services
 
             // Register the necessary encoding provider
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            //Encoding.GetEncoding("utf-8");
+            Encoding.GetEncoding("utf-8");
 
             LocalReport report = new LocalReport(rdlcFilePath);
 
             // Create parameter values
-            Dictionary<string, string> parameters = new Dictionary<string, string>
-                    {
-                        { "Title", "BURO Bangladesh" } // Ensure this matches the parameter name in the RDLC
-                    };
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+
+            parameters.Add("Title", "BURO Bangladesh");
+                   
 
             List<UserDto> userList = new List<UserDto>();
+
+          
 
             var user1 = new UserDto { FirstName = "jp", LastName = "jan", Email = "jp@gm.com", Phone = "+976666661111" };
             var user2 = new UserDto { FirstName = "jp2", LastName = "jan", Email = "jp2@gm.com", Phone = "+976666661111" };
@@ -57,7 +59,7 @@ namespace ReportPOC.Services
             userList.Add(user5);
 
             report.AddDataSource("DataSet1", userList);
-
+           
 
             var result = report.Execute(GetRenderType(reportType), 1, parameters);
            

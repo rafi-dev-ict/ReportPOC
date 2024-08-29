@@ -16,14 +16,15 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>1.61333in</Top>
-            <Left>2.35639in</Left>
+            <Top>0.16194in</Top>
             <Height>0.25in</Height>
-            <Width>1.74306in</Width>
+            <Width>5.85417in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -45,14 +46,15 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Title</rd:DefaultName>
-            <Top>1.61333in</Top>
-            <Left>4.29389in</Left>
+            <Top>0.60639in</Top>
             <Height>0.25in</Height>
-            <Width>1in</Width>
+            <Width>5.85417in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -65,11 +67,13 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.97222in</Height>
+        <Height>2.63194in</Height>
         <Style />
       </Body>
-      <Width>6.38889in</Width>
+      <Width>5.85417in</Width>
       <Page>
+        <PageHeight>11.69in</PageHeight>
+        <PageWidth>8.27in</PageWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
