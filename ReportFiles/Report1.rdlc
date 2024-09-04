@@ -42,7 +42,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!Title.Value</Value>
+                    <Value>=Parameters!pTitle.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -83,7 +83,7 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="Title">
+    <ReportParameter Name="pTitle">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
       <AllowBlank>true</AllowBlank>
@@ -98,7 +98,7 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>Title</ParameterName>
+          <ParameterName>pTitle</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

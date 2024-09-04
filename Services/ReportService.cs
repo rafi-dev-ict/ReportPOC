@@ -40,6 +40,9 @@ namespace ReportPOC.Services
             Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("Title", "BURO Bangladesh");
+            //parameters.Add("districtCount", "190");
+            //parameters.Add("loanDisbursed", "90");
+            //parameters.Add("pTitle", "BURO Bangladesh");
                    
 
             List<UserDto> userList = new List<UserDto>();
@@ -59,7 +62,8 @@ namespace ReportPOC.Services
             userList.Add(user5);
 
             report.AddDataSource("DataSet1", userList);
-           
+
+
 
             var result = report.Execute(GetRenderType(reportType), 1, parameters);
            
